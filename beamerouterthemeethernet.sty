@@ -1,0 +1,70 @@
+\usetikzlibrary{decorations.pathreplacing}
+
+\mode<presentation>
+
+% Frame title
+\defbeamertemplate*{frametitle}{ethernet}[1][] {
+  \vskip1cm%
+
+  \begin{beamercolorbox}[wd=\paperwidth, ht=1.2cm]{frametitle}
+    \begin{tikzpicture}
+      \useasboundingbox[fill=white] (0,0) rectangle(\the\paperwidth, 1.2);
+
+      \draw[very thick, EthernetOrange, decorate,decoration={brace,amplitude=4pt},xshift=-6pt,yshift=12pt] (2,0) -- (2,1.2);
+      \draw[very thick, EthernetOrange, decorate,decoration={brace,amplitude=4pt,mirror,raise=6pt},yshift=12pt] (10.84,0) -- (10.84,1.2);
+      \ifx\insertframesubtitle\@empty {
+        \node[anchor=west, EthernetBlack, font=\large] at (2.8, 1.01) {\insertframetitle};
+      }
+      \else {
+        \node[anchor=west, EthernetBlack, font=\large] at (2.8, 1.31) {\insertframetitle};
+        \node[anchor=west, EthernetBlack, font=\small] at (2.8, 0.71) {\insertframesubtitle};
+      }
+      \fi
+    \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+% Text frame
+\defbeamertemplate{frametitle}{transition}{%
+  \begin{minipage}{\textwidth}
+    \ifx\insertframesubtitle\@empty {
+        \vspace{0.47\paperheight}
+    }
+    \else {
+        \vspace{0.4\paperheight}
+    }
+    \fi
+    \color{EthernetBlack}
+    {\huge
+    \textbf{\insertframetitle}}\\
+    {\large
+    \insertframesubtitle}
+  \end{minipage}
+}
+
+\defbeamertemplate*{navigation symbols}{ethernet}{
+  \ifnum\thepage>1\relax
+    \hfill
+    \begin{beamercolorbox}{footline}
+      \usebeamercolor{footline}\small\hfill\insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}
+  \fi
+}
+
+\defbeamertemplate{navigation symbols}{transition}{
+  \hfill
+}
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{frametitle}[ethernet]%
+  \setbeamertemplate{navigation symbols}[ethernet]%
+}
+\makeatletter
+\define@key{beamerframe}{transition}[true]{%
+  \setbeamertemplate{frametitle}[transition]%
+  \setbeamertemplate{navigation symbols}[transition]%
+}
+\makeatother
+
+
+\mode<all>

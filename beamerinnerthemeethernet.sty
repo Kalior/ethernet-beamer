@@ -1,0 +1,40 @@
+\mode<presentation>
+
+\setbeamertemplate{background} {
+  \begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle(\the\paperwidth, \the\paperheight);
+    \ifnum\thepage>1\relax
+      \fill[white, opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{ethernet}[1][] {
+  \vskip2cm%
+  \begin{beamercolorbox}[wd=12cm, leftskip=1cm, sep=8pt, #1]{title page header}
+    \huge
+    \usebeamerfont{title}\inserttitle\par
+  \end{beamercolorbox}
+
+  \vskip 2cm
+
+  %\pgfsetfillopacity{0.5}
+  \begin{beamercolorbox}[wd=12cm, leftskip=1cm, #1]{author}
+    \usebeamerfont{author}\insertauthor
+  \end{beamercolorbox}
+
+  \vskip0.2cm
+  \begin{beamercolorbox}[wd=12cm, leftskip=1cm, #1]{date}
+    \small
+    \usebeamerfont{author}\insertdate
+  \end{beamercolorbox}
+
+  \vfil
+}
+
+% Items
+\setbeamertemplate{itemize items}{\large \textbullet}
+\setbeamertemplate{sections/subsections in toc}[square]
+
+\mode<all>
