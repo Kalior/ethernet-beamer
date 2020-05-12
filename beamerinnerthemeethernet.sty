@@ -4,7 +4,7 @@
   \begin{tikzpicture}
     \useasboundingbox (0,0) rectangle(\the\paperwidth, \the\paperheight);
     \ifnum\thepage>1\relax
-      \fill[white, opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      \fill[white, opacity=0] (0,0) rectangle(\the\paperwidth,\the\paperheight);
     \fi
   \end{tikzpicture}
 }
@@ -12,26 +12,47 @@
 % Title page
 \defbeamertemplate*{title page}{ethernet}[1][] {
   \vskip2cm%
-  \begin{beamercolorbox}[wd=12cm, leftskip=1cm, sep=8pt, #1]{title page header}
-    \huge
+  \begin{beamercolorbox}[wd=12cm, leftskip=0.2cm, sep=8pt, #1]{title page header}
     \usebeamerfont{title}\inserttitle\par
   \end{beamercolorbox}
 
-  \vskip 2cm
+  \vskip 1cm
 
   %\pgfsetfillopacity{0.5}
-  \begin{beamercolorbox}[wd=12cm, leftskip=1cm, #1]{author}
+  \begin{beamercolorbox}[wd=12cm, leftskip=0.2cm, sep=8pt, #1]{author}
     \usebeamerfont{author}\insertauthor
   \end{beamercolorbox}
 
+  \begin{beamercolorbox}[wd=12cm, leftskip=0.2cm, sep=8pt, #1]{date}
+    \usebeamerfont{date}\insertinstitute
+  \end{beamercolorbox}
+
   \vskip0.2cm
-  \begin{beamercolorbox}[wd=12cm, leftskip=1cm, #1]{date}
-    \small
-    \usebeamerfont{author}\insertdate
+  \begin{beamercolorbox}[wd=12cm, leftskip=0.2cm, sep=8pt, #1]{date}
+    \usebeamerfont{date}\insertdate
   \end{beamercolorbox}
 
   \vfil
 }
+
+\newcommand\insertcontact[1]{%
+{%
+  \hspace{-3.1em}
+  \begin{minipage}{0.50\paperwidth}
+  \vspace{-1.6em}
+    \includegraphics[width=0.5\paperwidth,height=\paperheight,keepaspectratio]{\insertauthorimage}
+  \end{minipage}
+  \hspace{0.01\paperwidth}
+  \begin{minipage}{0.30\paperwidth}
+      {\huge \insertshortauthor}
+      \vspace{1.5em}
+
+      {\small #1}
+      \vfill
+\end{minipage}
+
+}}
+
 
 % Items
 \setbeamertemplate{itemize items}{\large \textbullet}

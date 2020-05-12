@@ -35,34 +35,54 @@
     }
     \fi
     \color{EthernetBlack}
-    {\huge
-    \textbf{\insertframetitle}}\\
-    {\large
-    \insertframesubtitle}
+    {\usebeamerfont{transition}\insertframetitle}\\
+    {\usebeamerfont{transitionsub}\insertframesubtitle}
   \end{minipage}
 }
 
-\defbeamertemplate*{navigation symbols}{ethernet}{
+% Text frame
+\defbeamertemplate{frametitle}{image}{
+  \hspace{-4em}
+}
+
+\defbeamertemplate*{footline}{ethernet}{
   \ifnum\thepage>1\relax
-    \hfill
-    \begin{beamercolorbox}{footline}
-      \usebeamercolor{footline}\small\hfill\insertframenumber/\inserttotalframenumber
+  \vspace{-0.1\paperheight}
+  \hspace{-2ex}
+  \hbox{
+    \begin{beamercolorbox}[wd=0.8\paperwidth,ht=2.3ex,left,dp=2.3ex,leftskip=2ex]{footline}
+      \insertinstitute
     \end{beamercolorbox}
+    \hspace{-3ex}
+    \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.3ex,right,dp=2.3ex,rightskip=13ex]{footline}
+      \insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}
+    }
   \fi
 }
 
-\defbeamertemplate{navigation symbols}{transition}{
+\defbeamertemplate{footline}{empty}{
   \hfill
 }
 
+\setbeamertemplate{navigation symbols}{}
+
 \BeforeBeginEnvironment{frame}{%
   \setbeamertemplate{frametitle}[ethernet]%
-  \setbeamertemplate{navigation symbols}[ethernet]%
+  \setbeamertemplate{footline}[ethernet]%
 }
 \makeatletter
 \define@key{beamerframe}{transition}[true]{%
   \setbeamertemplate{frametitle}[transition]%
-  \setbeamertemplate{navigation symbols}[transition]%
+  \setbeamertemplate{footline}[empty]%
+}
+\define@key{beamerframe}{image}[true]{%
+  \setbeamertemplate{frametitle}[image]%
+  \setbeamertemplate{footline}[ethernet]%
+}
+\define@key{beamerframe}{contact}[true]{%
+  \setbeamertemplate{frametitle}[image]%
+  \setbeamertemplate{footline}[empty]%
 }
 \makeatother
 

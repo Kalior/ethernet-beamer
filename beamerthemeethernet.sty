@@ -3,6 +3,7 @@
 \RequirePackage{tikz}
 \RequirePackage{lastpage}
 \RequirePackage{xcolor}
+\RequirePackage{anyfontsize}
 
 \useinnertheme{ethernet}
 \useoutertheme{ethernet}
@@ -11,5 +12,16 @@
 
 \setbeamertemplate{blocks}[rounded][shadow=true]
 \setbeamertemplate{bibliography item}{}
+
+\newcommand{\email}{\@dblarg\beamer@email}
+\long\def\beamer@email[#1]#2{%
+  \def\insertemail{#2}  %
+  \def\insertshortemail{#1}%
+}
+
+\newcommand{\authorimage}{\@dblarg\beamer@authorimage}
+\long\def\beamer@authorimage[#1]#2{%
+  \def\insertauthorimage{#2}  %
+}
 
 \mode<all>

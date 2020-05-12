@@ -1,14 +1,17 @@
 \documentclass{beamer}
 \usepackage{fontspec}
 \setmainfont{Lato}
-\setsansfont{Inconsolata}
 \setmonofont{Lato}
+
+\usetheme{ethernet}
 
 \title{\huge\textbf{The ethernet theme}}
 \date{\today}
-\author{Joel Gustafsson}
+\author[Joel Gustafsson]{Joel Gustafsson}
+\institute{University of City}
+\email{person@example.com}
+\authorimage{example-small.jpg}
 
-\usetheme{ethernet}
 
 \begin{document}
 
@@ -30,6 +33,14 @@
   \begin{equation}
     e = mc^2
   \end{equation}
+\end{frame}
+
+\begin{frame}[image]{Contact}
+  \insertcontact{
+    Ethernet
+
+    Beamer theme
+  }
 \end{frame}
 
 \end{document}
