@@ -4,20 +4,20 @@
 
 % Frame title
 \defbeamertemplate*{frametitle}{ethernet}[1][] {
-  \vskip1cm%
+  \vskip-0.4cm%
 
   \begin{beamercolorbox}[wd=\paperwidth, ht=1.2cm]{frametitle}
     \begin{tikzpicture}
       \useasboundingbox[fill=white] (0,0) rectangle(\the\paperwidth, 1.2);
 
-      \draw[very thick, EthernetOrange, decorate,decoration={brace,amplitude=4pt},xshift=-6pt,yshift=12pt] (2,0) -- (2,1.2);
-      \draw[very thick, EthernetOrange, decorate,decoration={brace,amplitude=4pt,mirror,raise=6pt},yshift=12pt] (10.84,0) -- (10.84,1.2);
+      %\draw[very thick, EthernetOrange, decorate,decoration={brace,amplitude=4pt},xshift=-6pt,yshift=12pt] (2,0) -- (2,1.2);
+      %\draw[very thick, EthernetOrange, decorate,decoration={brace,amplitude=4pt,mirror,raise=6pt},yshift=12pt] (10.84,0) -- (10.84,1.2);
       \ifx\insertframesubtitle\@empty {
-        \node[anchor=west, EthernetBlack, font=\large] at (2.8, 1.01) {\insertframetitle};
+        \node[anchor=west] at (0.4, 0.1) {\usebeamerfont{header} \insertframetitle};
       }
       \else {
-        \node[anchor=west, EthernetBlack, font=\large] at (2.8, 1.31) {\insertframetitle};
-        \node[anchor=west, EthernetBlack, font=\small] at (2.8, 0.71) {\insertframesubtitle};
+        \node[anchor=west] at (0.4, 0.1) {\usebeamerfont{header} \insertframetitle};
+        \node[anchor=west, font=\small] at (0.51, -0.3) {\insertframesubtitle};
       }
       \fi
     \end{tikzpicture}
@@ -47,14 +47,16 @@
 
 \defbeamertemplate*{footline}{ethernet}{
   \ifnum\thepage>1\relax
-  \vspace{-0.1\paperheight}
+  \vspace{-0.3\paperheight}
   \hspace{-2ex}
   \hbox{
     \begin{beamercolorbox}[wd=0.8\paperwidth,ht=2.3ex,left,dp=2.3ex,leftskip=2ex]{footline}
+      \vspace{-0.8ex}
       \insertinstitute
     \end{beamercolorbox}
-    \hspace{-3ex}
-    \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.3ex,right,dp=2.3ex,rightskip=13ex]{footline}
+    \hspace{-6ex}
+    \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.3ex,right,dp=2.3ex,rightskip=10ex]{footline}
+      \vspace{-0.8ex}
       \insertframenumber/\inserttotalframenumber
     \end{beamercolorbox}
     }
