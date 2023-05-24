@@ -21,7 +21,7 @@
       }
       \fi
     \end{tikzpicture}
-  \end{beamercolorbox}
+  \end{beamercolorbox}%
 }
 
 % Text frame
@@ -46,20 +46,22 @@
 }
 
 \defbeamertemplate*{footline}{ethernet}{
-  \ifnum\thepage>1\relax
-  \vspace{-0.3\paperheight}
-  \hspace{-2ex}
-  \hbox{
-    \begin{beamercolorbox}[wd=0.8\paperwidth,ht=2.3ex,left,dp=2.3ex,leftskip=2ex]{footline}
-      \vspace{-0.8ex}
-      \insertinstitute
-    \end{beamercolorbox}
-    \hspace{-6ex}
-    \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.3ex,right,dp=2.3ex,rightskip=10ex]{footline}
-      \vspace{-0.8ex}
-      \insertframenumber/\inserttotalframenumber
-    \end{beamercolorbox}
-    }
+  \ifnum\thepage>1\relax%
+  \vspace{-0.3\paperheight}%
+  \hbox{%
+    \begin{beamercolorbox}[wd=0.71\paperwidth,ht=2.3ex,left,dp=1ex,leftskip=2ex]{footline}
+      %\vspace{-0.8ex}
+      \insertinstitute%
+    \end{beamercolorbox}%
+    \hspace{-0.01\paperwidth}%
+    %\hspace{-6ex}
+    \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.3ex,right,dp=1ex, rightskip=2ex]{footline}
+      %\vspace{-0.8ex}
+      \insertframenumber/\inserttotalframenumber%
+    \end{beamercolorbox}%
+    }%
+
+    \vskip0pt%
   \fi
 }
 
